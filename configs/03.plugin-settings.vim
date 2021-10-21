@@ -2,7 +2,7 @@ syntax enable
 set encoding=UTF-8
 
 "NERDTree
-map <C-a> :NERDTreeToggle<CR>
+map <F3> :NERDTreeToggle<CR>
 map <C-i> :NERDTreeFind<CR>
 let g:NERDTreePatternMatchHighlightFullName = 1
 let NERDTreeAutoDeleteBuffer = 1
@@ -15,29 +15,25 @@ let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycach
 let g:NERDTreeShowBookmarks=1
 
 " "Theme
-colorscheme onedark
-" colorscheme tomorrow-theme
-" highlight Normal ctermbg=None
-" highlight clear SignColumn
-" " set termguicolors
-" hi Normal guibg=NONE ctermbg=NONE
+"colorscheme snazzybuddy
+"highlight Normal ctermbg=None
+"highlight clear SignColumn
+"set termguicolors
+"hi Normal guibg=NONE ctermbg=NONE
 
 "Vim-airline
-let g:airline_theme='onedark'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#tab_nr_type = 2
+"let g:airline_theme='snazzybuddy'
+"let g:airline_powerline_fonts = 1
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#tab_nr_type = 2
 " let g:airline#extensions#tabline#formatter = 'unique_tail'
 map <Tab> :bp<CR>
 
 " Lcs Setting
 let g:lsc_auto_map = v:true
 
-" CtrlP
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_show_hidden = 1
+" FZF
+map <C-P> :FZF<CR>
 
 "Ultisnips
 let g:UltiSnipsExpandTrigger="<c-c>"
@@ -55,26 +51,11 @@ let g:UltiSnipsSnippetDirectories=["../UltiSnips"]
 " let g:python3_host_prog='/usr/bin/python3'
 " set completeopt-=preview
 
-"Vim-airline
-" " let g:airline_theme='codedark'
-" let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#tab_nr_type = 2
-" let g:airline#extensions#tabline#formatter = 'unique_tail'
-map <Tab> :bp<CR>
+"Flutter
+let g:dart_style_guide = 2
 
 "Close Buffer
 let bclose_multiple = 0
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 
 "NerdCommenter
 " Add spaces after comment delimiters by default
@@ -93,3 +74,42 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
+
+
+"coc config
+xmap <leader>a <Plug>(coc-codeaction-selected)
+nmap <leader>a <Plug>(coc-codeaction-selected)
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-tsserver',
+  \ 'coc-eslint', 
+  \ 'coc-prettier', 
+  \ 'coc-json', 
+  \ 'coc-flutter',
+  \ 'coc-snippets',
+  \ 'coc-yaml',
+  \ 'coc-tslint-plugin',
+  \ 'coc-tsserver',
+  \ 'coc-emmet',
+  \ 'coc-css',
+  \ 'coc-html',
+  \ 'coc-json',
+  \ ]
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
