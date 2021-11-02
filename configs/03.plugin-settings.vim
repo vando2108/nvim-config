@@ -15,7 +15,7 @@ let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycach
 let g:NERDTreeShowBookmarks=1
 
 " "Theme
-"colorscheme snazzybuddy
+"colorscheme nord
 "highlight Normal ctermbg=None
 "highlight clear SignColumn
 "set termguicolors

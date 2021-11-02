@@ -13,6 +13,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'tomasiser/vim-code-dark'
 Plug 'joshdick/onedark.vim'
+Plug 'arcticicestudio/nord-vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
