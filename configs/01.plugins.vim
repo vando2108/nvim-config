@@ -6,6 +6,8 @@ Plug 'preservim/nerdcommenter'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
+Plug 'voldikss/vim-floaterm'
+
 " Auto pair
 Plug 'jiangmiao/auto-pairs'
 
@@ -14,6 +16,7 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'tomasiser/vim-code-dark'
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'name': 'dracula' }
 
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
@@ -41,6 +44,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'natebosch/dartlang-snippets'
+
+"Golang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 "Deoplete
 Plug 'Neevash/awesome-flutter-snippets'
